@@ -16,13 +16,12 @@ namespace Infrastructure.configuration
 
         }
         public DbSet<Produto> Produto { get; set; }
-        public DbSet<Fornecedor> Fornecedor { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<Produto>().ToTable("PRODUTO");
-            builder.Entity<Fornecedor>().ToTable("FORNECEDOR");
+            builder.Entity<Produto>().HasKey(p => p.Codigo);
+            builder.Entity<Produto>().Property(p => p.Codigo).ValueGeneratedOnAdd();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,7 +34,7 @@ namespace Infrastructure.configuration
 
         public string getConnectionSatring()
         {
-            string strCon = "Server=localhost\\SQLEXPRESS;Database=CatalogoProdutos;Trusted_Connection=True;";
+            string strCon = "Server=localhost\\SQLEXPRESS;Database=CatalogoProdutos;TrustServerCertificate=True;";
             return strCon;
         }
     }

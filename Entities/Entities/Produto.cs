@@ -11,7 +11,6 @@ namespace Entities.Entities
     [Table("PRODUTO")]
     public class Produto : Notification
     {
-
         //Código do produto (sequencial e não nulo)
         [Column("COD_PRODUTO")]
         public int Codigo { get; set; }
@@ -48,10 +47,17 @@ namespace Entities.Entities
         [Column("SITUACAO")]
         public string Situacao { get; set; }
 
-        //criando a chave estrangeira
-        [ForeignKey("FORNECEDOR")]
-        public int codFornecedor { get; set; }
-        public virtual Fornecedor Fornecedor { get; set; }
+        //Codigo do fornecedor (não nulo)
+        [Column("COD_FORNECEDOR")]
+        public int CodigoFornecedor { get; set; }
+
+        //Descrição do fornecedor (não nulo)
+        [Column("DESC_FORNECEDOR")]
+        public int descricaoFornecedor { get; set; }
+
+        //CNPJ DO FORNECEDOR (não nulo)
+        [Column("CNPJ_FORNECEDOR")]
+        public string CnpjFornecedor { get; set; }
 
     }
 }

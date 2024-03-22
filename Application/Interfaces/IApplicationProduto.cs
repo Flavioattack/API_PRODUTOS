@@ -1,13 +1,14 @@
-﻿using Entities.Entities;
+﻿using Application.Interfaces.Generics;
+using Entities.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces.InterfaceServices
+namespace Application.Interfaces
 {
-    public interface IServiceProduto
+    internal interface IApplicationProduto : IGenericApplication<Produto>
     {
         Task AddProduto(Produto produto);
         Task UpdateProduto(Produto produto);

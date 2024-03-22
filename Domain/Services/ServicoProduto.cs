@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Domain.Services
 {
     public class ServicoProduto : IServiceProduto
@@ -56,7 +57,5 @@ namespace Domain.Services
         {
             return await _IProduto.ListarProdutos(p => p.Situacao == "Inativo");
         }
-
-
     }
 }
